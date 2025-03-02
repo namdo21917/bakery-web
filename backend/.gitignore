@@ -1,0 +1,37 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg-info/
+
+# Django
+*.log
+*.pot
+*.pyc
+*.pyo
+media/
+static/
+
+# Environments
+.env
+.venv
+venv/
+ENV/
+env/
+__pycache__/
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+#Local Database
+db.sqlite3

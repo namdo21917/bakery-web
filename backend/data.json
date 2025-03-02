@@ -1,0 +1,407 @@
+[
+    {
+        "id": 1,
+        "name" : "Cơm gà",
+        "image" : "https://file.hstatic.net/200000385717/article/fa57c14d-6733-4489-9953-df4a4760d147_1daf56255c344ad79439608b2ef80bd1.jpeg",
+        "price": 35000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Cơm"
+    },
+    {
+        "id": 2,
+        "name" : "Cơm tấm",
+        "image" : "https://static.vinwonders.com/production/com-tam-sai-gon-2.jpg",
+        "price": 40000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Cơm"
+    },
+    {
+        "id": 3,
+        "name" : "Cơm thố",
+        "image" : "https://ict-imgs.vgcloud.vn/2022/09/25/20/quan-com-tho-mo-rong-18-chi-nhanh-trong-2-nam-covid-nho-bat-tay-ung-dung-cong-nghe.png",
+        "price": 45000,
+        "description" : "",
+        "status" : "tạm ngưng",
+        "category" : "Cơm"
+    },
+    {
+        "id": 4,
+        "name" : "Cơm rang",
+        "image" : "https://assets.unileversolutions.com/v1/1187779.jpg",
+        "price": 20000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Cơm"
+    },
+    {
+        "id": 5,
+        "name" : "Cơm niêu",
+        "image" : "https://file.hstatic.net/200000459373/article/com-nieu-thit-kho_37b549de42be42018d21dd71845db31c.jpg",
+        "price": 75000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Cơm"
+    },
+    {
+        "id": 6,
+        "name" : "Bún riêu cua",
+        "image" : "https://i.ytimg.com/vi/Xb-s5pPlbbc/maxresdefault.jpg",
+        "price": 40000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 7,
+        "name" : "Bún bò Huế",
+        "image" : "https://i2.ex-cdn.com/crystalbay.com/files/content/2024/08/15/bun-bo-hue-6-0935.jpeg",
+        "price": 45000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 8,
+        "name" : "Bún chả",
+        "image" : "https://www.seriouseats.com/thmb/atsVhLwxdCWyX-QDuhOLhR0Kx4s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20231204-SEA-VyTran-BunChaHanoi-18-e37d96a89a0f43d097e02311686290f2.jpg",
+        "price": 25000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 9,
+        "name" : "Bún đậu mắm tôm",
+        "image" : "https://static.vinwonders.com/production/bun-dau-mam-tom-ha-noi-1.jpg",
+        "price": 50000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 10,
+        "name" : "Bún xào",
+        "image" : "https://cdn.tgdd.vn/2021/04/CookProductThumb/1-620x620-37.jpg",
+        "price": 25000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 11,
+        "name" : "Bún cá",
+        "image" : "https://cdn.tgdd.vn/Files/2021/09/11/1381884/cach-nau-bun-ca-ha-noi-thom-ngon-chuan-vi-202109111452323215.jpg",
+        "price": 45000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 12,
+        "name" : "Phở bò",
+        "image" : "https://fohlafood.vn/cdn/shop/articles/bi-quyet-nau-phi-bo-ngon-tuyet-dinh.jpg?v=1712213789",
+        "price": 30000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 13,
+        "name" : "Phở gà",
+        "image" : "https://cdn.buffetposeidon.com/app/media/uploaded-files/200823-cach-lam-pho-ga-buffet-poseidon.jpg",
+        "price": 30000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 14,
+        "name" : "Phở xào",
+        "image" : "https://monngonmoingay.com/wp-content/smush-webp/2017/05/pho-xao-540.jpg.webp",
+        "price": 35000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 15,
+        "name" : "Phở cuốn",
+        "image" : "https://cdn.eva.vn/upload/4-2023/images/2023-11-08/1699436344-446-thumbnail-width640height480.jpg",
+        "price": 8000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 16,
+        "name" : "Mì xào bò",
+        "image" : "https://nghebep.com/wp-content/uploads/2017/10/mon-mi-xao-bo.jpg",
+        "price": 30000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 17,
+        "name" : "Mì xào trứng",
+        "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6mWnNyH-iisEkn-k6GeS0B41Mm5_TFH0I-g&s",
+        "price": 20000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 18,
+        "name" : "Mì trộn",
+        "image" : "https://tinhnguyen.com.vn/Data/Sites/1/media/b%C3%A0i-vi%E1%BA%BFt/b%C3%ACa-23/thumbmi.jpg",
+        "price": 25000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 19,
+        "name" : "Mì trứng",
+        "image" : "https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/2/23/883027/8899Be52-Mi-Tom-Trun.jpg",
+        "price": 20000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 20,
+        "name" : "Mì cay bò",
+        "image" : "https://micaykoreno.com/public/thumbs/500x500x1/80_1696581407_M%C3%AC%20b%C3%B2%20m%E1%BB%B9.webp",
+        "price": 40000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Phở, Bún, Mì"
+    },
+    {
+        "id": 21,
+        "name" : "Bánh mì pate",
+        "image" : "https://mms.img.susercontent.com/vn-11134513-7r98o-lsvb2e8s9ok96b@resize_ss1242x600!@crop_w1242_h600_cT",
+        "price": 15000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Bánh mì"
+    },
+    {
+        "id": 22,
+        "name" : "Bánh mì trứng",
+        "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToa5DWxcwRdWpnoMYwv6osHRWB2Sbc-qgXow&s",
+        "price": 15000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Bánh mì"
+    },
+    {
+        "id": 23,
+        "name" : "Bánh mì xúc xích",
+        "image" : "https://blog.onelife.vn/wp-content/uploads/2021/11/cach-lam-banh-mi-kep-xuc-xich-djon-gian-banh-banh-ngot-860983743258.jpg",
+        "price": 15000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Bánh mì"
+    },
+    {
+        "id": 24,
+        "name" : "Bánh mì pate - xúc xích",
+        "image" : "https://alotoday.vn/uploads/images/202408/img_x500_66adeffd7c2d73-14226886-98738468.jpg",
+        "price": 20000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Bánh mì"
+    },
+    {
+        "id": 25,
+        "name" : "Bánh mì trứng - xúc xích",
+        "image" : "https://scontent.fhan5-7.fna.fbcdn.net/v/t1.6435-9/56649206_654093138365693_364672547683303424_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFC_M1STmMZaCW8UTQWxbXaXJwtOxgI7V9cnC07GAjtX0Yy0MWP3jkY7i3CXdDc4UgHgvOKuRBr--QeHB7IVfPH&_nc_ohc=fb428VrUCfIQ7kNvgG5lPyl&_nc_zt=23&_nc_ht=scontent.fhan5-7.fna&_nc_gid=AhRAvrgnITBsLecLApkWXYB&oh=00_AYBnpCEQOZX9enFTl4Kg63vFI_RP3zK8N6CgpF5UoJ90-A&oe=67787C91",
+        "price": 20000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Bánh mì"
+    },
+    {
+        "id": 26,
+        "name" : "Bánh mì pate - trứng",
+        "image" : "https://thietbibepviet.vn/wp-content/uploads/2022/03/lam-banh-mi-pate-trung.jpg",
+        "price": 20000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Bánh mì"
+    },
+    {
+        "id": 27,
+        "name" : "Khoai tây chiên",
+        "image" : "https://cdn.tgdd.vn/Files/2020/08/19/1281398/cach-lam-khoai-tay-chien-trong-10-phut-voi-noi-chien-khong-dau-khoai-gion-de-lau-cung-khong-mem-202008191207088100.jpg",
+        "price": 20000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ ăn nhanh"
+    },
+    {
+        "id": 28,
+        "name" : "Bánh gạo cay (Tokbokki)",
+        "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgX05b6RIZWUz4l9bk24BS3cc5CckmuDqNig&s",
+        "price": 25000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ ăn nhanh"
+    },
+    {
+        "id": 29,
+        "name" : "Khoai lang kén",
+        "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFDxma5RqxrzjOhz-k3LKp-HfVI5_gOarPdw&s",
+        "price": 25000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ ăn nhanh"
+    },
+    {
+        "id": 30,
+        "name" : "Gà rán",
+        "image" : "https://dienmaybaoviet.com/wp-content/uploads/2022/06/cach-lam-ga-ran-kfc-don-gian-nhat-1200x900.jpg",
+        "price": 30000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ ăn nhanh"
+    },
+    {
+        "id": 31,
+        "name" : "Bánh gà",
+        "image" : "https://static.hawonkoo.vn/hwks1/images/2023/08/cach-lam-banh-ga-bang-noi-chien-khong-dau-1.jpg",
+        "price": 10000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ ăn nhanh"
+    },
+    {
+        "id": 32,
+        "name" : "Kimbap",
+        "image" : "https://file.hstatic.net/200000438219/article/274726889_432438402013244_2563213742356314500_n_4c7bc78458624c21a34ea2a604f8fd51.jpg",
+        "price": 20000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ ăn nhanh"
+    },
+    {
+        "id": 33,
+        "name" : "Kimbap chiên",
+        "image" : "https://food.ibin.vn/images/data/news/lam-kimbap-chien/kimbap-chien-gion-tai-seoul-dong-an.jpg",
+        "price": 25000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ ăn nhanh"
+    },
+    {
+        "id": 34,
+        "name" : "Bánh bao",
+        "image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8_L84-zqThIc_p9d_HBKtqDDO24UcNPgeQg&s",
+        "price": 15000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ ăn nhanh"
+    },
+    {
+        "id" : 35,
+        "name" : "Viên chiên",
+        "image" : "https://down-vn.img.susercontent.com/file/2c937902a41b92fb3e3b2c2bd7a9008a",
+        "price": 40000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ ăn nhanh"
+    },
+    {
+        "id": 36,
+        "name" : "Lạp xưởng nướng đá",
+        "image" : "https://cafebiz.cafebizcdn.vn/162123310254002176/2024/1/26/maxresdefault-17062522228431633602981-1706253234503-170625323482234007935-1706259079136-1706259079557545276432.jpg",
+        "price": 15000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ ăn nhanh"
+    },
+    {
+        "id": 37,
+        "name" : "Trà thái xanh",
+        "image" : "https://barona.vn/storage/meo-vat/182/cach-lam-tra-sua-thai-xanh.jpg",
+        "price": 15000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ uống"
+    },
+    {
+        "id": 38,
+        "name" : "Trà sữa",
+        "image" : "https://dayphache.edu.vn/wp-content/uploads/2019/08/luong-duong-trong-1-ly-tra-sua.jpg",
+        "price": 25000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ uống"
+    },
+    {
+        "id": 39,
+        "name" : "Cà phê muối",
+        "image" : "https://1864-icdn.caching.ovh/w_1200,h_1200,c_1/https://file.hstatic.net/1000362089/article/ca_phe_muoi3_22abb29e3a42405d811fd27d65df2771_master.png",
+        "price": 25000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ uống"
+    },
+    {
+        "id": 40,
+        "name" : "Cà phê sữa",
+        "image" : "https://maisonmarou.com/wp-content/uploads/2023/09/caphe-sua.jpg",
+        "price": 20000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ uống"
+    },
+    {
+        "id": 41,
+        "name" : "Trà chanh",
+        "image" : "https://www.unileverfoodsolutions.com.vn/dam/global-ufs/mcos/phvn/vietnam/calcmenu/recipes/VN-recipes/other/energizing-lemon-tea/main-header.jpg",
+        "price": 15000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ uống"
+    },
+    {
+        "id": 42,
+        "name" : "Trà đào",
+        "image" : "https://res.klook.com/image/upload/q_85/c_fill,w_750/v1596017380/blog/fdhbsx1x6tmyswssvb1v.jpg",
+        "price": 25000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ uống"
+    },
+    {
+        "id": 43,
+        "name" : "Nước ép dưa hấu",
+        "image" : "https://www.cet.edu.vn/wp-content/uploads/2020/06/cach-lam-nuoc-ep-dua-hau.jpg",
+        "price": 20000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ uống"
+    },
+    {
+        "id": 44,
+        "name" : "Nước cam tươi",
+        "image" : "https://quangon.vn/resources/2020/03/17/cach-lam-nuoc-ep-cam-1.jpg",
+        "price": 15000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ uống"
+    },
+    {
+        "id": 45,
+        "name" : "Nước sấu",
+        "image" : "https://cdn-www.vinid.net/d6dc56ac-nuoc-sau-4.jpg",
+        "price": 10000,
+        "description" : "",
+        "status" : "còn hàng",
+        "category" : "Đồ uống"
+    }
+]

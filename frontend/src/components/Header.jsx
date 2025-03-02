@@ -224,13 +224,13 @@ function Header() {
                                                     <DropdownMenuLabel>{userName}</DropdownMenuLabel>
                                                     <DropdownMenuSeparator />
                                                     <DropdownMenuItem asChild>
-                                                        <Link to="/account">Trang cá nhân</Link>
+                                                        <Link to="/account" className="no-underline text-black">Trang cá nhân</Link>
                                                     </DropdownMenuItem>
                                                     <DropdownMenuItem asChild>
-                                                        <Link to="/orders">Đơn hàng của tôi</Link>
+                                                        <Link to="/orders" className="no-underline text-black">Đơn hàng của tôi</Link>
                                                     </DropdownMenuItem>
                                                     <DropdownMenuItem asChild>
-                                                        <Link to="/my-posts">Bài viết của tôi</Link>
+                                                        <Link to="/my-posts" className="no-underline text-black">Bài viết của tôi</Link>
                                                     </DropdownMenuItem>
                                                     <DropdownMenuItem onClick={handleLogout}>
                                                         Đăng xuất

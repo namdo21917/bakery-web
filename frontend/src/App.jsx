@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import './App.css'
 import Home from './pages/Home'
+import SHome from './shadcn-pages/SHome.jsx'
 import Blog from './pages/Blog'
 import DishDetail from './pages/DishDetail'
 import Login from './pages/Login'
@@ -22,7 +23,7 @@ function App() {
       <ScrollToTop />
 
       <Routes>
-        <Route path='/' element={<Home />}/>
+        <Route path='/' element={<SHome />}/>
         <Route path='/dish/:id' element={<DishDetail />}/>
         <Route path='/blog' element={<Blog />}/>
         <Route path='/account' element={<Account />}/>

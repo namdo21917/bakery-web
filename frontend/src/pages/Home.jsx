@@ -8,6 +8,7 @@ import Right from '../assets/Right.svg'
 import Banner from '../assets/Banner.png'
 import Dish from '../components/Dish'
 import dishesApi from '../api/dishes'
+import ms_banner_img3 from "@/assets/ms_banner_img3.webp";
 
 function Home() {
     const [loading, setLoading] = useState(true)   // Trạng thái lấy dữ liệu
@@ -62,7 +63,7 @@ function Home() {
         <>
             <Header />
 
-            <img src={Banner} alt="Banner" className='w-100 mb-4'/> 
+            <img src={ms_banner_img3} alt="Banner" className='w-100 mb-4'/>
             <Container>
                 {loading ? (
                     <div className="d-flex justify-content-center">

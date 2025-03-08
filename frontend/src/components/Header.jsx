@@ -1,90 +1,99 @@
-import { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { toast } from "sonner"
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../components/ui/sheet"
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "../components/ui/dropdown-menu"
-import { Button } from "../components/ui/button"
-import { Badge } from "../components/ui/badge"
-import { Command, CommandGroup, CommandInput, CommandItem, CommandList } from "../components/ui/command"
-import { Toaster } from "../components/ui/sonner"
-
-import Logo from '../assets/Logo.svg'
+    Container,
+    Dropdown,
+    Form,
+    InputGroup,
+    ListGroup,
+    Navbar,
+    Offcanvas,
+    Toast,
+    ToastContainer
+} from 'react-bootstrap'
+import { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import SearchLogo from '../assets/Search.svg'
+import grayLogo from '../assets/grayLogo.svg'
 import UserLogo from '../assets/User.svg'
 import GroupLogo from '../assets/Group.svg'
 import BagLogo from '../assets/Bag.svg'
-import CartItem from './CartItem'
-import { useCart } from './CartContext'
+import CartItem from './CartItem';
+import { useCart } from './CartContext';
 import './Custom.css'
-import dishesApi from '../api/dishes'
+import dishesApi from '../api/dishes';
 
 function Header() {
-    const [showOffcanvas, setShowOffcanvas] = useState(false)
+    const [showOffcanvas, setShowOffcanvas] = useState(false);
+    // Ngăn người dùng sử dụng các nút điều hướng trên Header khi đang ở trang thanh toán
     const location = useLocation()
     const isCheckout = location.pathname === '/checkout'
+    const [showCheckout, setShowCheckout] = useState(false)
+    const [showLogout, setShowLogout] = useState(false)
     const [dishes, setDishes] = useState([])
     const [searchQuery, setSearchQuery] = useState('')
     const [filteredDishes, setFilteredDishes] = useState([])
     const navigate = useNavigate()
+    // Xử lý khi đã đăng nhập
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const userName = sessionStorage.getItem('username')
-    const { cartCount, updateCartCount } = useCart()
-    const currentPath = window.location.pathname
-    sessionStorage.setItem("path-before-login", currentPath)
+    // Số lượng sản phẩm trong giỏ
+    const { cartCount } = useCart()
+    const { updateCartCount } = useCart()
+    // Lưu đường dẫn hiện tại để hỗ trợ việc đăng nhập
+    const currentPath = window.location.pathname; // Lấy đường dẫn hiện tại
+    sessionStorage.setItem("path-before-login", currentPath);
 
+
+    // Kiểm tra trạng thái đăng nhập
     useEffect(() => {
         const accessToken = sessionStorage.getItem("access_token")
-        setIsLoggedIn(!!accessToken)
+        setIsLoggedIn(!!accessToken) // Chuyển đổi thành boolean
     }, [])
 
+    // Xử lý đăng xuất
     const handleLogout = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         if (isCheckout) {
-            toast.error("Hãy hoàn thành việc thanh toán!")
+            setShowCheckout(true)
             return
         }
 
         if (!window.confirm('Bạn có chắc chắn muốn đăng xuất?')) {
-            return
+            return;
         }
 
         try {
-            sessionStorage.clear()
-            localStorage.clear()
-            updateCartCount(0)
-            setIsLoggedIn(false)
+            // Xóa tất cả thông tin đăng nhập
+            sessionStorage.clear();
+            localStorage.clear();
 
-            toast.success("Đăng xuất thành công!")
+            // Cập nhật giỏ hàng về 0 sau khi đăng xuất
+            updateCartCount(0);
 
+            // Cập nhật trạng thái đăng xuất
+            setIsLoggedIn(false);
+            setShowLogout(true);
             setTimeout(() => {
-                navigate('/')
+                navigate('/') // Chuyển hướng sang trang chủ sau 1 giây
             }, 1000)
         } catch (error) {
-            console.error('Lỗi trong quá trình đăng xuất:', error)
-            toast.error("Đã xảy ra lỗi khi đăng xuất. Vui lòng thử lại!")
+            console.error('Lỗi trong quá trình đăng xuất:', error);
+            alert('Đã xảy ra lỗi khi đăng xuất. Vui lòng thử lại!');
         }
-    }
+    };
 
+    const handleClose = () => setShowOffcanvas(false)
     const handleShow = () => {
         if (isCheckout) {
-            toast.error("Hãy hoàn thành việc thanh toán!")
-            return false
+            setShowCheckout(true)
         } else if (isLoggedIn) {
-            setShowOffcanvas(true)
-            return true
+            setShowOffcanvas(true);
         } else {
-            toast.error("Vui lòng đăng nhập trước!")
-            return false
+            alert("Vui lòng đăng nhập trước!")
         }
     }
 
+    // Lấy dữ liệu cho việc tìm kiếm sản phẩm
     useEffect(() => {
         const fetchDishes = async () => {
             try {
@@ -94,6 +103,7 @@ function Header() {
                 console.log('Lỗi lấy dữ liệu tìm kiếm: ', error)
             }
         }
+
         fetchDishes()
     }, [])
 
@@ -103,12 +113,13 @@ function Header() {
             setFilteredDishes([])
         } else {
             const filtered = dishes.filter(dish => {
-                return dish.name.toLowerCase().includes(query.toLowerCase())
+                return dish.name.toLowerCase().includes(query.toLowerCase())  // So sánh giá trị người dùng nhập với tên món (flavorName)
             })
             setFilteredDishes(filtered)
         }
     }
 
+    // Ẩn phần tìm kiếm sau khi người dùng chọn một món ăn trong phần tìm kiếm này
     const handleSelectDish = () => {
         setSearchQuery('')
         setFilteredDishes([])
@@ -116,148 +127,158 @@ function Header() {
 
     return (
         <>
-            <div className="relative">
-                {/* Banner Section */}
-                <div className="relative h-[600px] w-full">
-                    <div className="absolute inset-0 bg-black/60 z-10" />
-                    <img
-                        src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000&auto=format&fit=crop"
-                        alt="Banner"
-                        className="w-full h-full object-cover"
-                    />
+            <Navbar className='bg-white sticky-top'>
+                <Container className='py-2 d-flex justify-content-between'>
+                    {/* Logo  */}
+                    <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
+                        <img
+                            src={grayLogo}
+                            alt="TLU Food Logo"
+                            className="d-inline-block"
+                            style={{ height: '55px', width: 'auto' }}
+                        />
+                    </Navbar.Brand>
 
-                    {/* Search and Actions Bar - Absolute positioned on top of banner */}
-                    <div className="absolute top-0 left-0 right-0 z-20 bg-transparent">
-                        <div className="container mx-auto">
-                            <div className="flex items-center justify-between py-4">
-                                {/* Logo */}
-                                <Link to="/" className="flex items-center">
-                                    <img src={Logo} alt="Logo" className="h-12" />
-                                </Link>
-
-                                {/* Search Bar */}
-                                <div className="w-[500px]">
-                                    <Command className="rounded-lg border shadow-sm bg-white/10 backdrop-blur-md">
-                                        <CommandInput
-                                            placeholder="Tìm kiếm sản phẩm..."
-                                            value={searchQuery}
-                                            onValueChange={handleSearch}
-                                            className="text-white placeholder:text-white/70"
-                                        />
-                                        {filteredDishes.length > 0 && (
-                                            <CommandList className="absolute top-full w-full bg-white mt-1 rounded-lg border shadow-lg max-h-[300px] overflow-auto">
-                                                <CommandGroup>
-                                                    {filteredDishes.map(dish => (
-                                                        <CommandItem
-                                                            key={dish.id}
-                                                            onSelect={() => {
-                                                                handleSelectDish()
-                                                                navigate(`/dish/${dish.id}`)
-                                                            }}
-                                                        >
-                                                            <div className="flex items-center space-x-3">
-                                                                <img
-                                                                    src={dish.image}
-                                                                    alt={dish.name}
-                                                                    className="h-8 w-8 object-cover rounded"
-                                                                />
-                                                                <span>{dish.name}</span>
-                                                            </div>
-                                                        </CommandItem>
-                                                    ))}
-                                                </CommandGroup>
-                                            </CommandList>
-                                        )}
-                                    </Command>
-                                </div>
-
-                                {/* Action Buttons */}
-                                <div className="flex items-center space-x-4">
-                                    <Link to="/blog">
-                                        <Button variant="ghost" size="icon" className="hover:bg-white/10">
-                                            <img src={GroupLogo} alt="Blog" className="h-6 w-6 brightness-0 invert" />
-                                        </Button>
-                                    </Link>
-
-                                    <Sheet
-                                        open={showOffcanvas}
-                                        onOpenChange={(open) => {
-                                            if (open) {
-                                                if (handleShow()) {
-                                                    setShowOffcanvas(true)
-                                                }
-                                            } else {
-                                                setShowOffcanvas(false)
-                                            }
-                                        }}
+                    {/* Tìm kiếm */}
+                    <Form className='position-relative' onSubmit={(e) => e.preventDefault()}>
+                        <InputGroup className='rounded-pill bg-body-secondary px-3'
+                            style={{ width: '500px', height: '4030' }}>
+                            <Form.Control
+                                type="text"
+                                placeholder="Tìm kiếm sản phẩm..."
+                                className="rounded-pill bg-body-secondary border-0 me-2"
+                                value={searchQuery}
+                                onChange={(e) => handleSearch(e.target.value)}
+                            />
+                            <img
+                                src={SearchLogo}
+                                alt="Search Logo"
+                                height='20'
+                                className="align-self-center"
+                            />
+                        </InputGroup>
+                        {/* Phần hiển thị kết quả tìm kiếm  */}
+                        {filteredDishes.length > 0 && (
+                            <ListGroup className='z-3 position-absolute mt-2 overflow-y-auto'
+                                style={{ maxHeight: '300px' }}>
+                                {filteredDishes.map(dish => (
+                                    <ListGroup.Item
+                                        key={dish.id}
+                                        onClick={() => handleSelectDish(dish.id, dish.name)}
+                                        style={{ width: '500px' }}
                                     >
-                                        <SheetTrigger asChild>
-                                            <Button variant="ghost" size="icon" className="relative hover:bg-white/10">
-                                                <img src={BagLogo} alt="Cart" className="h-6 w-6 brightness-0 invert" />
-                                                {cartCount > 0 && (
-                                                    <Badge
-                                                        variant="destructive"
-                                                        className="absolute -top-1 -right-1"
-                                                    >
-                                                        {cartCount}
-                                                    </Badge>
-                                                )}
-                                            </Button>
-                                        </SheetTrigger>
-                                        <SheetContent>
-                                            <SheetHeader>
-                                                <SheetTitle>Giỏ hàng</SheetTitle>
-                                            </SheetHeader>
-                                            <CartItem />
-                                        </SheetContent>
-                                    </Sheet>
+                                        <Link to={dish ? `/dish/${dish.id}` : '/'}
+                                            className="text-decoration-none text-dark">
+                                            <div className="d-flex">
+                                                <img
+                                                    src={dish.image}
+                                                    className='object-fit-scale'
+                                                    style={{ width: '35px', height: '30px' }}
+                                                />
+                                                <h6 className='ms-3 pt-2'>{dish.name}</h6>
+                                            </div>
+                                        </Link>
+                                    </ListGroup.Item>
+                                ))}
+                            </ListGroup>
+                        )}
+                    </Form>
 
-                                    <DropdownMenu>
-                                        <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" size="icon" className="hover:bg-white/10">
-                                                <img src={UserLogo} alt="User" className="h-6 w-6 brightness-0 invert" />
-                                            </Button>
-                                        </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end">
-                                            {isLoggedIn ? (
-                                                <>
-                                                    <DropdownMenuLabel>{userName}</DropdownMenuLabel>
-                                                    <DropdownMenuSeparator />
-                                                    <DropdownMenuItem asChild>
-                                                        <Link to="/account" className="no-underline text-black">Trang cá nhân</Link>
-                                                    </DropdownMenuItem>
-                                                    <DropdownMenuItem asChild>
-                                                        <Link to="/orders" className="no-underline text-black">Đơn hàng của tôi</Link>
-                                                    </DropdownMenuItem>
-                                                    <DropdownMenuItem asChild>
-                                                        <Link to="/my-posts" className="no-underline text-black">Bài viết của tôi</Link>
-                                                    </DropdownMenuItem>
-                                                    <DropdownMenuItem onClick={handleLogout}>
-                                                        Đăng xuất
-                                                    </DropdownMenuItem>
-                                                </>
-                                            ) : (
-                                                <DropdownMenuItem asChild>
-                                                    <Link to="/login">Đăng nhập</Link>
-                                                </DropdownMenuItem>
-                                            )}
-                                        </DropdownMenuContent>
-                                    </DropdownMenu>
-                                </div>
+                    <div className="d-flex align-items-center" style={{ cursor: 'pointer' }}>
+                        {/* Blog  */}
+                        <Link to='/blog'>
+                            <img src={GroupLogo} alt="Group Logo"  className='me-4 iconHover' />
+                        </Link>
+                        {/* Giỏ hàng */}
+                        {cartCount > 0 ? (
+                            <div className="position-relative">
+                                <img
+                                    src={BagLogo}
+                                    alt="Bag Logo"
+                                    height='24'
+                                    className='me-2 iconHover'
+                                    onClick={handleShow}
+                                />
+                                <span
+                                    className='position-absolute top-0 start-100 translate-middle badge rounded-pill text-white'
+                                    style={{ backgroundColor: '#000066' }}
+                                >
+                                    {cartCount}
+                                </span>
                             </div>
-                        </div>
-                    </div>
+                        ) : (
+                            <img
+                                src={BagLogo}
+                                alt="Bag Logo"
+                                height='24'
+                                className='me-2 iconHover'
+                                onClick={handleShow}
+                            />
+                        )}
+                        {/* Người dùng */}
+                        <Dropdown className='p-0'>
+                            <Dropdown.Toggle className='bg-transparent border border-0'>
+                                <img src={UserLogo} className='iconHover' alt="User Logo" height='24' />
+                            </Dropdown.Toggle>
 
-                    {/* Banner Content */}
-                    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white">
-                        <h1 className="text-5xl font-bold mb-2">Delicious Cafe</h1>
-                        <h2 className="text-7xl font-bold mb-8 text-orange-300">
-                            Sweet Treats,<br />Perfect Eats
-                        </h2>
+                            <Dropdown.Menu>
+                                {isLoggedIn ? (
+                                    <>
+                                        <Dropdown.Header className='fw-medium'>{userName}</Dropdown.Header>
+                                        <Dropdown.Divider />
+                                        <Dropdown.Item>
+                                            <Link to="/account" className="text-decoration-none text-black">
+                                                Trang cá nhân
+                                            </Link>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item>
+                                            <Link to="/orders" className="text-decoration-none text-black">
+                                                Đơn hàng của tôi
+                                            </Link>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item>
+                                            <Link to="/my-posts " className="text-decoration-none text-black">
+                                                Bài viết của tôi
+                                            </Link>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item onClick={handleLogout}
+                                            className="text-decoration-none text-black">
+                                            Đăng xuất
+                                        </Dropdown.Item>
+                                    </>
+                                ) : (
+                                    <Dropdown.Item>
+                                        <Link to="/login" className="text-decoration-none text-black">
+                                            Đăng nhập
+                                        </Link>
+                                    </Dropdown.Item>
+                                )}
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </div>
-                </div>
-            </div>
-            <Toaster />
+                </Container>
+            </Navbar>
+
+            {/* Giỏ hàng */}
+            <Offcanvas show={showOffcanvas} onHide={handleClose} placement="end">
+                <Offcanvas.Header closeButton className='border-bottom'>
+                    <Offcanvas.Title className='fw-bold'>Giỏ hàng</Offcanvas.Title>
+                </Offcanvas.Header>
+                <CartItem />
+            </Offcanvas>
+
+            <ToastContainer className="mt-3 position-fixed" position="top-center">
+                <Toast className="bg-danger text-white text-center fw-medium" onClose={() => setShowCheckout(false)}
+                    delay={3000} show={showCheckout} autohide>
+                    <Toast.Body>Hãy hoàn thành việc thanh toán!</Toast.Body>
+                </Toast>
+            </ToastContainer>
+            <ToastContainer className="mt-3 position-fixed" position="top-center">
+                <Toast className="bg-danger text-white text-center fw-medium" onClose={() => setShowLogout(false)}
+                    delay={2500} show={showLogout} autohide>
+                    <Toast.Body>Đăng xuất thành công!</Toast.Body>
+                </Toast>
+            </ToastContainer>
         </>
     )
 }

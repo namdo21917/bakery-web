@@ -28,6 +28,8 @@ import {
 } from "../components/ui/card"
 
 import { Skeleton } from "../components/ui/skeleton"
+import Banner from "@/assets/Banner.png";
+import ms_banner_img3 from "@/assets/ms_banner_img3.webp"
 
 function ProductCarousel({ dishes }) {
     return (
@@ -120,25 +122,26 @@ function Home() {
     }, [])
 
     return (
-        <div className="min-h-screen">
-            <Header />
 
+        <div className="min-h-screen">
+            <Header/>
+            <img src={ms_banner_img3} alt="Banner" className='w-100 mb-4'/>
             <div className="container mx-auto px-4 py-8 justify-center">
                 {loading ? (
                     <div className="space-y-4">
-                        <Skeleton className="h-10 w-[400px] mx-auto" />
+                        <Skeleton className="h-10 w-[400px] mx-auto"/>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                             {[1, 2, 3, 4].map((i) => (
                                 <Card key={i}>
                                     <CardHeader>
-                                        <Skeleton className="h-4 w-[250px]" />
-                                        <Skeleton className="h-4 w-[200px]" />
+                                        <Skeleton className="h-4 w-[250px]"/>
+                                        <Skeleton className="h-4 w-[200px]"/>
                                     </CardHeader>
                                     <CardContent>
-                                        <Skeleton className="h-[200px] w-full" />
+                                        <Skeleton className="h-[200px] w-full"/>
                                     </CardContent>
                                     <CardFooter>
-                                        <Skeleton className="h-4 w-[100px]" />
+                                        <Skeleton className="h-4 w-[100px]"/>
                                     </CardFooter>
                                 </Card>
                             ))}
@@ -167,7 +170,7 @@ function Home() {
                             <TabsContent key={category} value={category} className="mt-6">
                                 <div className="space-y-4">
                                     <h2 className="text-3xl font-bold text-center">{category}</h2>
-                                    <ProductCarousel dishes={dishes} />
+                                    <ProductCarousel dishes={dishes}/>
                                 </div>
                             </TabsContent>
                         ))}
@@ -175,7 +178,7 @@ function Home() {
                 )}
             </div>
 
-            <Footer />
+            <Footer/>
         </div>
     )
 }

@@ -2,11 +2,11 @@ import { Form, Button, Container, Toast, ToastContainer } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 
-import Logo from "../assets/Logo.svg"
+import LoginImg from "../assets/LoginImg.jpg"
+import grayLogo from "../assets/grayLogo.svg"
 import "../components/Custom.css"
 import userApi from '../api/user'
 import dishesApi from "../api/dishes"
-import LoginImage from '../assets/LoginImage.jpeg'
 import { useCart } from "../components/CartContext"
 
 function Login() {
@@ -68,10 +68,9 @@ function Login() {
             <div className="d-flex justify-content-center py-3 border-bottom bg-white">
                 <Link to="/">
                     <img
-                        src={Logo}
-                        alt="TLU Food Logo"
-                        height="30"
-                        style={{ cursor: "pointer" }}
+                        src={grayLogo}
+                        alt="TLU Bakery Logo"
+                        style={{ height: '55px', width: 'auto' }}
                     />
                 </Link>
             </div>
@@ -83,7 +82,7 @@ function Login() {
                     <div className="row p-3">
                         <div className="col-md-5 d-flex align-items-center">
                             <img
-                                src={LoginImage}
+                                src={LoginImg}
                                 className="ms-5"
                                 style={{ width: "85%" }}
                             ></img>

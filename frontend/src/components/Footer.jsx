@@ -8,7 +8,7 @@ function Footer() {
             <div
                 className="mt-5 footer"
                 style={{
-                    backgroundColor: "#000066",
+                    backgroundColor: "#e4bda3",
                 }}
             >
                 <Container className="pt-3 pb-3">

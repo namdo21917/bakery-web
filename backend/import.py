@@ -9,7 +9,7 @@ django.setup()
 from Web.models import Product, Category  # Thay 'api' bằng tên ứng dụng của bạn
 
 # Đường dẫn đến file JSON
-json_file_path = 'data.json'  # Đảm bảo đường dẫn đúng
+json_file_path = 'bakery_data.json'  # Đảm bảo đường dẫn đúng
 
 # Đọc dữ liệu từ file JSON
 with open(json_file_path, 'r', encoding='utf-8') as file:

@@ -1,0 +1,272 @@
+[
+    {
+        "id": 1,
+        "name": "Petit83-14",
+        "image": "https://product.hstatic.net/1000025647/product/petit83-14_7e6845ffe97f4e7c88f6920f6c1e5947.jpg",
+        "price": 594000,
+        "description": "Bánh Petit cao cấp",
+        "status": "còn hàng",
+        "category": "Bánh Petit"
+    },
+    {
+        "id": 2,
+        "name": "Petit83-15",
+        "image": "https://anhhoabakery.vn/petit83-15",
+        "price": 578000,
+        "description": "Bánh Petit cao cấp",
+        "status": "còn hàng",
+        "category": "Bánh Petit"
+    },
+    {
+        "id": 3,
+        "name": "Petit83-13",
+        "image": "https://anhhoabakery.vn/petit83-13",
+        "price": 562000,
+        "description": "Bánh Petit cao cấp",
+        "status": "còn hàng",
+        "category": "Bánh Petit"
+    },
+    {
+        "id": 4,
+        "name": "Petit hoa quả",
+        "image": "https://anhhoabakery.vn/petit-hoa-qua",
+        "price": 80000,
+        "description": "Bánh Petit với hoa quả tươi",
+        "status": "còn hàng",
+        "category": "Bánh Petit"
+    },
+    {
+        "id": 5,
+        "name": "Petit capuchino",
+        "image": "https://anhhoabakery.vn/petit-capuchino",
+        "price": 80000,
+        "description": "Bánh Petit hương vị cà phê",
+        "status": "còn hàng",
+        "category": "Bánh Petit"
+    },
+    {
+        "id": 6,
+        "name": "Petit Tiramisu",
+        "image": "https://anhhoabakery.vn/petit-tiramisu",
+        "price": 80000,
+        "description": "Bánh Petit hương vị tiramisu",
+        "status": "còn hàng",
+        "category": "Bánh Petit"
+    },
+    {
+        "id": 7,
+        "name": "FRUIT CAKE",
+        "image": "https://anhhoabakery.vn/fruit-cake",
+        "price": 300000,
+        "description": "Bánh kem tươi trái cây (KT017)",
+        "status": "còn hàng",
+        "category": "Gateaux Kem Tươi"
+    },
+    {
+        "id": 8,
+        "name": "GREENTEA CAKE",
+        "image": "https://anhhoabakery.vn/greentea-cake",
+        "price": 240000,
+        "description": "Bánh kem tươi trà xanh (KT006)",
+        "status": "còn hàng",
+        "category": "Gateaux Kem Tươi"
+    },
+    {
+        "id": 9,
+        "name": "COCONUT CAKE",
+        "image": "https://anhhoabakery.vn/coconut-cake",
+        "price": 300000,
+        "description": "Bánh kem tươi dừa (KT014)",
+        "status": "còn hàng",
+        "category": "Gateaux Kem Tươi"
+    },
+    {
+        "id": 10,
+        "name": "TIRAMISU CAKE",
+        "image": "https://anhhoabakery.vn/tiramisu-cake",
+        "price": 240000,
+        "description": "Bánh kem tươi tiramisu (KT072)",
+        "status": "còn hàng",
+        "category": "Gateaux Kem Tươi"
+    },
+    {
+        "id": 11,
+        "name": "Pizza Jăm-Bông ngô",
+        "image": "https://anhhoabakery.vn/pizza-jam-bong-ngo",
+        "price": 50000,
+        "description": "Pizza với nhân jăm bông và ngô ngọt",
+        "status": "còn hàng",
+        "category": "Bánh Mặn"
+    },
+    {
+        "id": 12,
+        "name": "Pizza Jăm-Bông Nấm",
+        "image": "https://anhhoabakery.vn/pizza-jam-bong-nam",
+        "price": 50000,
+        "description": "Pizza với nhân jăm bông và nấm",
+        "status": "còn hàng",
+        "category": "Bánh Mặn"
+    },
+    {
+        "id": 13,
+        "name": "Pizza Thập Cẩm Jăm-Bông Dứa",
+        "image": "https://anhhoabakery.vn/pizza-thap-cam-jam-bong-dua",
+        "price": 50000,
+        "description": "Pizza thập cẩm với jăm bông và dứa",
+        "status": "còn hàng",
+        "category": "Bánh Mặn"
+    },
+    {
+        "id": 14,
+        "name": "PIZZA XÚC XÍCH CAY",
+        "image": "https://anhhoabakery.vn/pizza-xuc-xich-cay",
+        "price": 60000,
+        "description": "Pizza với nhân xúc xích cay",
+        "status": "còn hàng",
+        "category": "Bánh Mặn"
+    },
+    {
+        "id": 15,
+        "name": "BÁNH NGÀN LỚP DỨA",
+        "image": "https://anhhoabakery.vn/banh-ngan-lop-dua",
+        "price": 18000,
+        "description": "Bánh ngàn lớp nhân dứa - Puff Pastry Pineapple",
+        "status": "còn hàng",
+        "category": "Bánh Mặn"
+    },
+    {
+        "id": 16,
+        "name": "Bánh Mì Mềm Nhân Nho Dừa",
+        "image": "https://anhhoabakery.vn/banh-mi-mem-nhan-nho-dua",
+        "price": 24000,
+        "description": "Bánh mì mềm với nhân nho và dừa",
+        "status": "còn hàng",
+        "category": "Bánh Mì"
+    },
+    {
+        "id": 17,
+        "name": "Bánh Mì Sốt Thịt Bằm Đài Loan",
+        "image": "https://anhhoabakery.vn/banh-mi-sot-thit-bam-dai-loan",
+        "price": 32000,
+        "description": "Bánh mì với nhân thịt bằm kiểu Đài Loan",
+        "status": "còn hàng",
+        "category": "Bánh Mì"
+    },
+    {
+        "id": 18,
+        "name": "Bánh Mì Cá Ngừ Sốt Tomyum Thái",
+        "image": "https://anhhoabakery.vn/banh-mi-ca-ngu-sot-tomyum-thai",
+        "price": 32000,
+        "description": "Bánh mì nhân cá ngừ sốt Tom Yum",
+        "status": "còn hàng",
+        "category": "Bánh Mì"
+    },
+    {
+        "id": 19,
+        "name": "SỪNG BÒ - CROISSANT",
+        "image": "https://anhhoabakery.vn/sung-bo-croissant",
+        "price": 18000,
+        "description": "Bánh sừng bò kiểu Pháp",
+        "status": "còn hàng",
+        "category": "Bánh Mì"
+    },
+    {
+        "id": 20,
+        "name": "Pain Chocolate",
+        "image": "https://anhhoabakery.vn/pain-chocolate",
+        "price": 22000,
+        "description": "Bánh mì chocolate kiểu Pháp",
+        "status": "còn hàng",
+        "category": "Bánh Mì"
+    },
+    {
+        "id": 21,
+        "name": "TIRAMISU CAKE MOUSSE",
+        "image": "https://product.hstatic.net/1000025647/product/tiramisu_cake_mousse_bsn08_f66ad8c6f8d14feca98c0a656b2a17d6.jpg",
+        "price": 380000,
+        "description": "Bánh sinh nhật Tiramisu Mousse (BSN08)",
+        "status": "còn hàng",
+        "category": "Bánh Sinh Nhật"
+    },
+    {
+        "id": 22,
+        "name": "PASSION FRUIT MOUSSE",
+        "image": "https://product.hstatic.net/1000025647/product/passion_fruit_mousse_bsn010_9f837e44d8f94f0d9f53b61c98ac31cd.jpg",
+        "price": 380000,
+        "description": "Bánh sinh nhật Mousse chanh leo (BSN010)",
+        "status": "còn hàng",
+        "category": "Bánh Sinh Nhật"
+    },
+    {
+        "id": 23,
+        "name": "RED VELVET CHOCO CAKE",
+        "image": "https://product.hstatic.net/1000025647/product/red_velvet_choco_cake_c833_7f837e44d8f94f0d9f53b61c98ac31cd.jpg",
+        "price": 330000,
+        "description": "Bánh Red Velvet phủ socola (C833)",
+        "status": "còn hàng",
+        "category": "Bánh Sinh Nhật"
+    },
+    {
+        "id": 24,
+        "name": "SPECIAL CAKE",
+        "image": "https://product.hstatic.net/1000025647/product/special_cake_c831_8f837e44d8f94f0d9f53b61c98ac31cd.jpg",
+        "price": 330000,
+        "description": "Bánh sinh nhật đặc biệt (C831)",
+        "status": "còn hàng",
+        "category": "Bánh Sinh Nhật"
+    },
+    {
+        "id": 25,
+        "name": "TIRAMISU CAKE CHỮ NHẬT",
+        "image": "https://product.hstatic.net/1000025647/product/tiramisu_cake_chu_nhat_bsn04_5f837e44d8f94f0d9f53b61c98ac31cd.jpg",
+        "price": 480000,
+        "description": "Bánh Tiramisu hình chữ nhật (BSN04)",
+        "status": "còn hàng",
+        "category": "Bánh Sinh Nhật"
+    },
+    {
+        "id": 26,
+        "name": "Red Velvet Cream Cheese Mousse Cake",
+        "image": "https://product.hstatic.net/1000025647/product/red_velvet_cream_cheese_mousse_cake_red83-02_4f837e44d8f94f0d9f53b61c98ac31cd.jpg",
+        "price": 380000,
+        "description": "Bánh Red Velvet phủ kem phô mai (Red83-02)",
+        "status": "còn hàng",
+        "category": "Bánh Sinh Nhật"
+    },
+    {
+        "id": 27,
+        "name": "RED VELVET CAKE VUÔNG",
+        "image": "https://product.hstatic.net/1000025647/product/red_velvet_cake_vuong_kt025a_3f837e44d8f94f0d9f53b61c98ac31cd.jpg",
+        "price": 360000,
+        "description": "Bánh Red Velvet hình vuông (KT025A)",
+        "status": "còn hàng",
+        "category": "Bánh Sinh Nhật"
+    },
+    {
+        "id": 28,
+        "name": "RED VELVET CAKE CHỮ NHẬT",
+        "image": "https://product.hstatic.net/1000025647/product/red_velvet_cake_chu_nhat_bsn01_2f837e44d8f94f0d9f53b61c98ac31cd.jpg",
+        "price": 530000,
+        "description": "Bánh Red Velvet hình chữ nhật (BSN01)",
+        "status": "còn hàng",
+        "category": "Bánh Sinh Nhật"
+    },
+    {
+        "id": 29,
+        "name": "HAWAII MOUSSE",
+        "image": "https://product.hstatic.net/1000025647/product/hawaii_mousse_bsn09_1f837e44d8f94f0d9f53b61c98ac31cd.jpg",
+        "price": 380000,
+        "description": "Bánh Mousse hương vị Hawaii (BSN09)",
+        "status": "còn hàng",
+        "category": "Bánh Sinh Nhật"
+    },
+    {
+        "id": 30,
+        "name": "GREEN TEA CAKE CHỮ NHẬT",
+        "image": "https://product.hstatic.net/1000025647/product/green_tea_cake_chu_nhat_bsn02_0f837e44d8f94f0d9f53b61c98ac31cd.jpg",
+        "price": 480000,
+        "description": "Bánh trà xanh hình chữ nhật (BSN02)",
+        "status": "còn hàng",
+        "category": "Bánh Sinh Nhật"
+    }
+]

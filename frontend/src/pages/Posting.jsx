@@ -12,10 +12,10 @@ function Posting() {
     const [title, setTitle] = useState(""); // State cho Tiêu đề
     const [content, setContent] = useState(""); // State cho Nội dung
     const [error, setError] = useState(""); // State cho thông báo lỗi
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [showAlert, setShowAlert] = useState(false)
-    const [showMessage, setShowMessage] = useState(false)   
+    const [showMessage, setShowMessage] = useState(false)
 
     // Kiểm tra xem đã đăng nhập chưa
     useEffect(() => {
@@ -32,7 +32,7 @@ function Posting() {
     };
 
     // Hàm xử lý gửi bài viết
-    const handlePosting = async(e) => {
+    const handlePosting = async (e) => {
         e.preventDefault()
         try {
             if (!isLoggedIn) {
@@ -47,7 +47,7 @@ function Posting() {
                     }, 1000)
                 }
             }
-        } catch(error) {
+        } catch (error) {
             console.log("Loi khi dang bai", error)
             if (error.response) {
                 setError(error.response.data.detail || 'Đăng bài không thành công!')
@@ -58,10 +58,9 @@ function Posting() {
     }
 
     return (
-        <>
+        <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f8f2e8' }}>
             <Header />
-
-            <Container>
+            <Container className="flex-grow">
                 <Navbar style={{ paddingLeft: "12px" }}>
                     <nav
                         style={{
@@ -95,7 +94,7 @@ function Posting() {
                             />
                         </div>
 
-                    
+
                         <div className="bg-white">
                             <div className="mb-3">
                                 <label htmlFor="imageUpload" className="form-label">Chọn ảnh</label>
@@ -113,7 +112,7 @@ function Posting() {
                                     <img src={image} alt="Selected" className="img-fluid" />
                                 </div>
                             )}
-                        </div> 
+                        </div>
 
                         <div className="mb-3">
                             <label htmlFor="exampleFormControlTextarea1" className="form-label fw-bold">Nội dung bài viết</label>
@@ -143,16 +142,16 @@ function Posting() {
             <ToastContainer className="mt-3" position="top-center">
                 <Toast className="bg-warning-subtle text-center" onClose={() => setShowAlert(false)} delay={3000} show={showAlert} autohide>
                     <Toast.Body>Hãy đăng nhập trước!</Toast.Body>
-                </Toast>    
+                </Toast>
             </ToastContainer>
             <ToastContainer className="mt-3" position="top-center">
                 <Toast className="bg-success text-white text-center" onClose={() => setShowMessage(false)} delay={800} show={showMessage} autohide>
                     <Toast.Body>Đăng bài thành công!</Toast.Body>
-                </Toast>    
+                </Toast>
             </ToastContainer>
 
             <Footer />
-        </>
+        </div>
     );
 }
 

@@ -12,7 +12,7 @@ import { useCart } from '../components/CartContext'
 import '../components/Custom.css'
 
 function DishDetail() {
-    const {id} = useParams()
+    const { id } = useParams()
     const [dish, setDish] = useState(null)
     const [quantity, setQuantity] = useState(1)
     const [error, setError] = useState('')
@@ -23,7 +23,7 @@ function DishDetail() {
 
     // Lấy dữ liệu
     useEffect(() => {
-        const fetchDish = async() => {
+        const fetchDish = async () => {
             try {
                 const dishDetail = await dishesApi.getDishDetail(id)
                 setDish(dishDetail)
@@ -38,7 +38,7 @@ function DishDetail() {
         const newQuantity = quantity + 1
         setQuantity(newQuantity)
     }
-    
+
     const handleDecrease = () => {
         if (quantity > 1) {
             const newQuantity = quantity - 1
@@ -46,11 +46,11 @@ function DishDetail() {
         }
     }
 
-    const addToCart = async(e) => {
+    const addToCart = async (e) => {
         e.preventDefault()
         try {
             const addReponse = await dishesApi.addToCart(id, quantity) || []
-            
+
             console.log("addRes:", addReponse)
             if (addReponse) {
                 // Gọi API để lấy số lượng sản phẩm mới trong giỏ
@@ -74,10 +74,9 @@ function DishDetail() {
     }
 
     return (
-        <>
+        <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f8f2e8' }}>
             <Header />
-
-            <Container>
+            <Container className="flex-grow">
                 <Breadcrumb className='my-3'>
                     <Link to='/' className='text-decoration-none text-secondary me-2'>Trang chủ</Link>
                     <span className='text-secondary me-2'>&gt;</span>
@@ -88,11 +87,11 @@ function DishDetail() {
 
                 <Row className='pb-3 mb-4'>
                     <Col>
-                        <img 
-                            src={dish?.image || 'https://placehold.co/320x200?text=Loading...'} 
+                        <img
+                            src={dish?.image || 'https://placehold.co/320x200?text=Loading...'}
                             alt="Ảnh sản phẩm"
-                            className='object-fit-cover rounded' 
-                            style={{width:'100%', height: '450px'}}
+                            className='object-fit-cover rounded'
+                            style={{ width: '100%', height: '450px' }}
                         />
                     </Col>
                     <Col className='ps-2'>
@@ -100,51 +99,50 @@ function DishDetail() {
                         <Star st={dish ? dish.rating : 0} />
                         <span className='ms-2 text-secondary'>{dish ? dish.rating : 0}/5</span>
                         {
-                            dish && dish.status === 'tạm ngưng'  ? (
+                            dish && dish.status === 'tạm ngưng' ? (
                                 <span className='ms-3 px-3 py-1 bg-danger rounded-pill text-white'>Tạm ngưng</span>
                             ) : (
                                 <span></span>
                             )
                         }
                         <p className='text-secondary my-2'>Đã bán {dish ? dish.sold : 0}</p>
-                        <p className='my-1'><Currency amount={dish ? dish.price : 0} fontSize={32}/></p>
+                        <p className='my-1'><Currency amount={dish ? dish.price : 0} fontSize={32} /></p>
                         <p className='text-secondary border-bottom border-secondary-subtle pb-3'>{dish ? dish.description : "Đang tải..."}</p>
                         <div className="d-flex">
-                            <span className='d-flex rounded-pill align-self-center px-2 pb-1' style={{backgroundColor: '#D1D1D6'}}>
+                            <span className='d-flex rounded-pill align-self-center px-2 pb-1' style={{ backgroundColor: '#D1D1D6' }}>
                                 <button type='button' className='btn fw-bold border border-0' onClick={handleDecrease}>-</button>
                                 <span className='align-self-center mx-3'>{quantity}</span>
                                 <button type='button' className='btn fw-bold border border-0' onClick={handleIncrease}>+</button>
                             </span>
                             {
-                                dish && dish.status === 'tạm ngưng'  ? (
+                                dish && dish.status === 'tạm ngưng' ? (
                                     <button disabled
                                         type="button" className="btn rounded-pill ms-3 px-5 pb-2 buttonHover"
                                     >
                                         Thêm vào giỏ hàng
                                     </button>
-                            ) : (
+                                ) : (
                                     <button
                                         type="button" className="btn rounded-pill ms-3 px-5 pb-2 buttonHover"
                                         onClick={addToCart}
                                     >
                                         Thêm vào giỏ hàng
                                     </button>
-                            )
-                        }
+                                )
+                            }
                         </div>
                         {error && <p className="text-danger mt-2">{error}</p>}
                         <ToastContainer className="mt-3" position="top-center">
                             <Toast className="bg-success text-white text-center" onClose={() => setShow(false)} delay={2000} show={show} autohide>
                                 <Toast.Body>Thêm thành công!</Toast.Body>
-                            </Toast>    
+                            </Toast>
                         </ToastContainer>
-                    </Col>                
+                    </Col>
                 </Row>
-                
+
             </Container>
-                
             <Footer />
-        </>
+        </div>
     )
 }
 

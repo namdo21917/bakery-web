@@ -44,10 +44,9 @@ function Blog() {
     }
 
     return (
-        <>
+        <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f8f2e8' }}>
             <Header />
-
-            <Container>
+            <Container className="flex-grow">
                 <Navbar>
                     <nav
                         style={{
@@ -91,8 +90,8 @@ function Blog() {
                     ) : posts.length === 0 ? (
                         <p className="text-center text-secondary">Không có bài viết nào để hiển thị</p>
                     ) : (
-                        currentPosts.map((post) => (   
-                            <Post key={post.id} data={post}/>
+                        currentPosts.map((post) => (
+                            <Post key={post.id} data={post} />
                         ))
                     )}
                 </div>
@@ -111,9 +110,8 @@ function Blog() {
                     )}
                 </Pagination>
             </Container>
-            
             <Footer />
-        </>
+        </div>
     );
 }
 

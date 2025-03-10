@@ -9,7 +9,7 @@ import Currency from "../components/Currency";
 import "../components/Custom.css"
 
 function OrderDetail() {
-  const {id} = useParams()
+  const { id } = useParams()
   const [order, setOrder] = useState(null)
 
   // Lấy dữ liệu đơn hàng
@@ -18,12 +18,12 @@ function OrderDetail() {
       try {
         const response = await orderApi.getUserOrders();
         // console.log("All Orders:", response.orders)
-        
+
         // Lọc ra đơn hàng có id trùng với id từ URL
         const foundOrder = response.orders.find(order => order.id === parseInt(id))
         console.log("This order:", foundOrder)
         setOrder(foundOrder)
-         
+
       } catch (err) {
         console.log("Lỗi khi lấy dữ liệu đơn hàng", err)
       }
@@ -34,10 +34,10 @@ function OrderDetail() {
 
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f8f2e8' }}>
       <Header />
 
-      <Container>
+      <Container className="flex-grow">
 
         <Navbar>
           <nav
@@ -69,7 +69,7 @@ function OrderDetail() {
             </ol>
           </nav>
         </Navbar>
-        
+
         <h2 className="mb-3">Chi tiết đơn hàng</h2>
         <div className="bg-white rounded px-4 py-3 mb-5">
           <div className="d-flex border-bottom mb-3 pb-1">
@@ -106,8 +106,8 @@ function OrderDetail() {
             {order && order.products.map((item, index) => (
               <div className="d-flex mb-3" key={index}>
                 <img className="rounded me-3 align-self-center" src={item.product.image} style={{ width: "3rem" }}></img>
-                <span className="me-2 align-self-center" style={{fontSize: "1.15rem"}}>x{item.quantity}</span>
-                <span className="me-auto align-self-center" style={{fontSize: "1.15rem"}}>{item.product.name}</span>
+                <span className="me-2 align-self-center" style={{ fontSize: "1.15rem" }}>x{item.quantity}</span>
+                <span className="me-auto align-self-center" style={{ fontSize: "1.15rem" }}>{item.product.name}</span>
                 <p className="align-self-center"><Currency amount={item.product.price} fontSize={15} /></p>
               </div>
             ))}
@@ -115,7 +115,7 @@ function OrderDetail() {
           <h5>Chi tiết thanh toán</h5>
           <div className="d-flex mb-3">
             <p className="my-1 me-auto align-self-center">Tổng tiền</p>
-            <p>{order ? <Currency amount={order.tongtien} fontSize={20}/> : 0}</p>
+            <p>{order ? <Currency amount={order.tongtien} fontSize={20} /> : 0}</p>
           </div>
           <div className="d-grid d-md-flex justify-content-md-end">
             <Link
@@ -129,7 +129,7 @@ function OrderDetail() {
       </Container>
 
       <Footer />
-    </>
+    </div>
   );
 }
 

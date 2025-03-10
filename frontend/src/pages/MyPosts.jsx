@@ -59,18 +59,17 @@ function MyPosts() {
     };
 
     return (
-        <>
+        <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f8f2e8' }}>
             <Header />
-
-            <Container>
+            <Container className="flex-grow">
                 <Navbar>
                     <nav style={{
-                                    "--bs-breadcrumb-divider": `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E")`,
-                                }} aria-label="breadcrumb">
-                    <ol className="breadcrumb">
-                        <li className="breadcrumb-item"><Link to="/" className="link-underline-light text-secondary">Trang chủ</Link></li>
-                        <li className="breadcrumb-item active text-dark" aria-current="page">Bài viết của tôi</li>
-                    </ol>
+                        "--bs-breadcrumb-divider": `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E")`,
+                    }} aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><Link to="/" className="link-underline-light text-secondary">Trang chủ</Link></li>
+                            <li className="breadcrumb-item active text-dark" aria-current="page">Bài viết của tôi</li>
+                        </ol>
                     </nav>
                 </Navbar>
                 <h1 className="mb-3">Bài viết của tôi</h1>
@@ -80,7 +79,7 @@ function MyPosts() {
                     ) : myPosts.length === 0 ? (
                         <p className="text-center text-secondary">Không có bài viết nào để hiển thị</p>
                     ) : (
-                        currentPosts.map((post) => (   
+                        currentPosts.map((post) => (
                             <Post key={post.id} data={post} onDelete={handleDelete} onUpdate={handleUpdate} />
                         ))
                     )}
@@ -100,9 +99,8 @@ function MyPosts() {
                     )}
                 </Pagination>
             </Container>
-
             <Footer />
-        </>
+        </div>
     )
 }
 

@@ -74,7 +74,7 @@ function Checkout() {
         }
         fetchCart()
     }, [])
-    
+
     // console.log("Total:", total)
 
     // Hàm xử lý khi chọn mã giảm giá
@@ -108,16 +108,16 @@ function Checkout() {
         if (total >= selectedCoupon[2]) {
             setDiscount((selectedCoupon[1] / 100) * total)
             setShowCoupon(true)
-            return 
+            return
         } else {
             setShowMinimum(true)
-            return 
+            return
         }
     }
-    
+
 
     console.log("Input:", selectedPayment[0], selectedCoupon[0], cart, total + 25000 - discount, customerInfo)
-    const handleOrdering = async(e) => {
+    const handleOrdering = async (e) => {
         e.preventDefault()
         try {
             const orderingRes = await orderApi.createOrder(selectedPayment[0], selectedCoupon[0], cart, total + 25000 - discount, customerInfo)
@@ -135,7 +135,7 @@ function Checkout() {
                 updateCartCount(0)
                 if (selectedPayment[0] == 2) {
                     setShowModal(true)
-                } else {   
+                } else {
                     setShowMessage(true)
                     setTimeout(() => {
                         navigate('/')
@@ -157,17 +157,16 @@ function Checkout() {
     }
 
     return (
-        <>
+        <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f8f2e8' }}>
             <Header />
-
-            <Container>
+            <Container className="flex-grow">
                 <div className="row">
                     <div className="col-8 offset-md-2">
                         <div className="bg-white mt-4 px-4 py-3 rounded">
                             {/* Thanh toán  */}
                             <div className="d-flex border-bottom mb-3">
                                 <Link to='/' className="me-auto">
-                                    <img src={Back} alt="Backward" height='25' style={{ cursor: 'pointer' }}/>
+                                    <img src={Back} alt="Backward" height='25' style={{ cursor: 'pointer' }} />
                                 </Link>
                                 <p className="fw-bold fs-5 me-auto">THANH TOÁN</p>
                             </div>
@@ -188,8 +187,8 @@ function Checkout() {
                                     <div className="col">
                                         <Form.Label htmlFor="sdt">SĐT</Form.Label>
                                         <Form.Control
-                                            type="text" 
-                                            name="sdt" 
+                                            type="text"
+                                            name="sdt"
                                             placeholder='Nhập SĐT người nhận'
                                             className='mb-2'
                                             value={customerInfo.sdt}
@@ -199,8 +198,8 @@ function Checkout() {
                                 </div>
                                 <Form.Label htmlFor="address">Giao tới</Form.Label>
                                 <Form.Control
-                                    type="text" 
-                                    name="diachi" 
+                                    type="text"
+                                    name="diachi"
                                     placeholder='Nhập địa chỉ người nhận'
                                     className='mb-2'
                                     value={customerInfo.diachi}
@@ -215,11 +214,11 @@ function Checkout() {
                                         <div className="d-flex mb-3" key={index}>
                                             <img
                                                 src={item.product.image}
-                                                className='rounded' 
-                                                style={{width: '4em'}} 
+                                                className='rounded'
+                                                style={{ width: '4em' }}
                                             />
                                             <p className="ms-3 align-self-center me-auto">{item.product.name}</p>
-                                            <p className="align-self-center ms-2"><Currency amount={item.product.price} fontSize={16}/></p>
+                                            <p className="align-self-center ms-2"><Currency amount={item.product.price} fontSize={16} /></p>
                                             <p className="align-self-center ms-2">x{item.quantity}</p>
                                         </div>
                                     ))
@@ -259,7 +258,7 @@ function Checkout() {
                                         variant="dark"
                                         className='blButtonHover rounded-pill ms-3'
                                         onClick={handleCouponUsing}
-                                        style={{width: '8rem'}}
+                                        style={{ width: '8rem' }}
                                     >
                                         Áp dụng
                                     </Button>
@@ -271,40 +270,40 @@ function Checkout() {
                                 <p className="mb-2">
                                     Tổng sản phẩm
                                     <span className="float-end">
-                                    <Currency
-                                        amount={cart.reduce((total, item) => total + item.quantity * item.product.price, 0)}
-                                        fontSize={17}
-                                    />
+                                        <Currency
+                                            amount={cart.reduce((total, item) => total + item.quantity * item.product.price, 0)}
+                                            fontSize={17}
+                                        />
                                     </span>
                                 </p>
                                 <p className="mb-2">
                                     Phí vận chuyển
-                                    <span className="float-end fw-medium" style={{color: "#16a634"}}>
-                                        +<Currency amount={25000} fontSize={17}/>
+                                    <span className="float-end fw-medium" style={{ color: "#16a634" }}>
+                                        +<Currency amount={25000} fontSize={17} />
                                     </span>
-                                </p>    
+                                </p>
                                 <p className="mb-2">
                                     Mã giảm giá
-                                    <span className="float-end fw-medium" style={{color: "#f32409"}}>
-                                        -<Currency amount={discount} fontSize={17}/>
+                                    <span className="float-end fw-medium" style={{ color: "#f32409" }}>
+                                        -<Currency amount={discount} fontSize={17} />
                                     </span>
                                 </p>
                                 <p className="mb-2 fw-medium">
                                     Tổng cộng
-                                    <span className="float-end" style={{color: '#000066'}}>
+                                    <span className="float-end" style={{ color: '#000066' }}>
                                         <Currency
                                             amount={total + 25000 - discount}
                                             fontSize={18}
                                         />
                                     </span>
                                 </p>
-                                
+
                                 {error && <div className="alert alert-danger">{error}</div>}
 
                                 <div className="d-flex justify-content-end">
                                     <Button
                                         className="mt-4 buttonHover rounded-pill"
-                                        style={{width: '150px'}}
+                                        style={{ width: '150px' }}
                                         onClick={handleOrdering}
                                     >
                                         Đặt hàng
@@ -318,19 +317,19 @@ function Checkout() {
             <ToastContainer className="mt-3 position-fixed" position="top-center">
                 <Toast className="bg-success text-white text-center fw-medium" onClose={() => setShowMessage(false)} delay={800} show={showMessage} autohide>
                     <Toast.Body>Đặt hàng thành công!</Toast.Body>
-                </Toast>    
+                </Toast>
             </ToastContainer>
-            
+
             <ToastContainer className="mt-3 position-fixed" position="top-center">
                 <Toast className="bg-success text-white text-center fw-medium" onClose={() => setShowCoupon(false)} delay={3000} show={showCoupon} autohide>
                     <Toast.Body>Áp dụng mã giảm giá thành công!</Toast.Body>
-                </Toast>    
+                </Toast>
             </ToastContainer>
 
             <ToastContainer className="mt-3 position-fixed" position="top-center">
                 <Toast className="bg-danger text-white text-center fw-medium" onClose={() => setShowMinimum(false)} delay={3000} show={showMinimum} autohide>
                     <Toast.Body>Đơn hàng của bạn không đủ giá trị tối thiểu!</Toast.Body>
-                </Toast>    
+                </Toast>
             </ToastContainer>
 
             <Modal
@@ -340,20 +339,20 @@ function Checkout() {
                 keyboard={false}
             >
                 <Modal.Header closeButton>
-                <Modal.Title>Thanh toán qua mã QR</Modal.Title>
+                    <Modal.Title>Thanh toán qua mã QR</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="d-flex justify-content-center">
-                    <img src={QRPay} alt="QRPay" width="400rem"/>
+                    <img src={QRPay} alt="QRPay" width="400rem" />
                 </Modal.Body>
                 <Modal.Footer>
-                <Button className="btn rounded-pill buttonHover" onClick={handleClose}>
-                    Hoàn thành
-                </Button>
+                    <Button className="btn rounded-pill buttonHover" onClick={handleClose}>
+                        Hoàn thành
+                    </Button>
                 </Modal.Footer>
             </Modal>
 
             <Footer />
-        </>
+        </div>
     )
 }
 

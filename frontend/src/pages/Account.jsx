@@ -31,9 +31,9 @@ function Account() {
 		}
 	};
 	return (
-		<>
+		<div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f8f2e8' }}>
 			<Header />
-			<Container>
+			<Container className="flex-grow">
 				<Navbar>
 					<nav
 						style={{
@@ -167,9 +167,8 @@ function Account() {
 					</div>
 				</div>
 			</Container>
-
 			<Footer />
-		</>
+		</div>
 	);
 }
 

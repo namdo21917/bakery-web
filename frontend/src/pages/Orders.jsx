@@ -6,8 +6,8 @@ import {
 	Modal,
 	Pagination,
 	Button,
-  Form,
-  FloatingLabel
+	Form,
+	FloatingLabel
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
@@ -24,8 +24,8 @@ const Orders = () => {
 	const [toastVariant, setToastVariant] = useState("success");
 	const [showModal, setShowModal] = useState(false);
 	const [dishesList, setDishesList] = useState([]);
-  	const [orderId, setOrderId] = useState(null)
-  	const [ratings, setRatings] = useState({}); // Lưu rating cho từng sản phẩm
+	const [orderId, setOrderId] = useState(null)
+	const [ratings, setRatings] = useState({}); // Lưu rating cho từng sản phẩm
 	// Phân trang
 	const [currentPage, setCurrentPage] = useState(1);
 	const ordersPerPage = 10;
@@ -80,52 +80,51 @@ const Orders = () => {
 	};
 
 	const handleOpen = ([dishList, orderId]) => {
-    console.log("List:", dishList, orderId); // Kiểm tra danh sách sản phẩm
-    setDishesList(dishList);
-    setOrderId(orderId)
-    setShowModal(true);
-  };
+		console.log("List:", dishList, orderId); // Kiểm tra danh sách sản phẩm
+		setDishesList(dishList);
+		setOrderId(orderId)
+		setShowModal(true);
+	};
 
 	const handleClose = () => {
 		setShowModal(false);
 	};
 
-  const handleRatingChange = (productId, value) => {
-    // Cập nhật giá trị rating của từng sản phẩm
-    console.log("Rating:", ratings)
-    setRatings((prevRatings) => ({
-      ...prevRatings,
-      [productId]: Math.min(Math.max(value, 0), 5), // Giới hạn từ 0 đến 5
-    }));
-  };
+	const handleRatingChange = (productId, value) => {
+		// Cập nhật giá trị rating của từng sản phẩm
+		console.log("Rating:", ratings)
+		setRatings((prevRatings) => ({
+			...prevRatings,
+			[productId]: Math.min(Math.max(value, 0), 5), // Giới hạn từ 0 đến 5
+		}));
+	};
 
-  const handleSubmitRatings = async (e) => {
-    e.preventDefault()
-    try {
-      for (const productId in ratings) {
-        const rating = ratings[productId];
-        if (rating) {
-          await orderApi.rateDish(orderId, productId, rating);
-        }
-      }
-      // Thông báo thành công
-      setToastMessage("Đánh giá thành công!");
-      setToastVariant("success");
-      setShowToast(true);
-      handleClose();
-    } catch (error) {
-      console.error("Lỗi đánh giá sản phẩm:", error);
-      setToastMessage("Đánh giá không thành công!");
-      setToastVariant("danger");
-      setShowToast(true);
-    }
-  };
+	const handleSubmitRatings = async (e) => {
+		e.preventDefault()
+		try {
+			for (const productId in ratings) {
+				const rating = ratings[productId];
+				if (rating) {
+					await orderApi.rateDish(orderId, productId, rating);
+				}
+			}
+			// Thông báo thành công
+			setToastMessage("Đánh giá thành công!");
+			setToastVariant("success");
+			setShowToast(true);
+			handleClose();
+		} catch (error) {
+			console.error("Lỗi đánh giá sản phẩm:", error);
+			setToastMessage("Đánh giá không thành công!");
+			setToastVariant("danger");
+			setShowToast(true);
+		}
+	};
 
 	return (
-		<>
+		<div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f8f2e8' }}>
 			<Header />
-
-			<Container>
+			<Container className="flex-grow">
 				<Navbar>
 					<nav
 						style={{
@@ -301,41 +300,40 @@ const Orders = () => {
 					<Modal.Header closeButton>
 						<Modal.Title>Đánh giá sản phẩm</Modal.Title>
 					</Modal.Header>
-          <Form>
-            <Modal.Body className="px-3">
-              {dishesList.map((item, index) => (
-                <div className="d-flex" key={index}>
-                  <p className="fs-5 mb-2 align-self-center">{item.product.name}</p>
-                  <FloatingLabel label="Số sao" className='mb-3 ms-auto'>
-                    <Form.Control
-                      type="number"
-                      min="0"
-                      max="5"
-                      value={ratings[item.product.id] || ""}
-                      onChange={(e) =>
-                        handleRatingChange(item.product.id, parseFloat(e.target.value))
-                      }
-                      required
-                    />
-                  </FloatingLabel>
-                </div>
-              ))}
-            </Modal.Body>
-            <Modal.Footer>
-              <Button
-                className="btn rounded-pill blButtonHover"
-                onClick={handleClose}
-              >
-                Đóng
-              </Button>
-              <Button className="btn rounded-pill yButtonHover" type="submit" onClick={handleSubmitRatings}>Đánh giá</Button>
-            </Modal.Footer>
-          </Form>
+					<Form>
+						<Modal.Body className="px-3">
+							{dishesList.map((item, index) => (
+								<div className="d-flex" key={index}>
+									<p className="fs-5 mb-2 align-self-center">{item.product.name}</p>
+									<FloatingLabel label="Số sao" className='mb-3 ms-auto'>
+										<Form.Control
+											type="number"
+											min="0"
+											max="5"
+											value={ratings[item.product.id] || ""}
+											onChange={(e) =>
+												handleRatingChange(item.product.id, parseFloat(e.target.value))
+											}
+											required
+										/>
+									</FloatingLabel>
+								</div>
+							))}
+						</Modal.Body>
+						<Modal.Footer>
+							<Button
+								className="btn rounded-pill blButtonHover"
+								onClick={handleClose}
+							>
+								Đóng
+							</Button>
+							<Button className="btn rounded-pill yButtonHover" type="submit" onClick={handleSubmitRatings}>Đánh giá</Button>
+						</Modal.Footer>
+					</Form>
 				</Modal>
 			</Container>
-
 			<Footer />
-		</>
+		</div>
 	);
 };
 

@@ -18,40 +18,40 @@ function Login() {
     const { updateCartCount } = useCart()
     const currentPath = sessionStorage.getItem("path-before-login") || '/'
 
-    const handleLogin = async(e) => {
-      e.preventDefault()
-      try {
-        const response = await userApi.login(email, password) || []
+    const handleLogin = async (e) => {
+        e.preventDefault()
+        try {
+            const response = await userApi.login(email, password) || []
 
-        if (response && response.access) {
-            sessionStorage.setItem('access_token', response.access);
-            sessionStorage.setItem('refresh_token', response.refresh)
-            sessionStorage.setItem('username', response.username);
-            sessionStorage.setItem('userID', response.userID);
+            if (response && response.access) {
+                sessionStorage.setItem('access_token', response.access);
+                sessionStorage.setItem('refresh_token', response.refresh)
+                sessionStorage.setItem('username', response.username);
+                sessionStorage.setItem('userID', response.userID);
 
-            localStorage.setItem('access_token', response.access);
-            localStorage.setItem('refresh_token', response.refresh)
-            localStorage.setItem('username', response.username);
-            localStorage.setItem('userID', response.userID);
+                localStorage.setItem('access_token', response.access);
+                localStorage.setItem('refresh_token', response.refresh)
+                localStorage.setItem('username', response.username);
+                localStorage.setItem('userID', response.userID);
 
-            if (sessionStorage.getItem('access_token')) {
-                // Gọi API để lấy số lượng sản phẩm mới trong giỏ
-                const cartResponse = await dishesApi.customerCart()
-                // console.log("cusCartRes:", cartResponse)
-                const totalItems = cartResponse.carts[0].quantity
+                if (sessionStorage.getItem('access_token')) {
+                    // Gọi API để lấy số lượng sản phẩm mới trong giỏ
+                    const cartResponse = await dishesApi.customerCart()
+                    // console.log("cusCartRes:", cartResponse)
+                    const totalItems = cartResponse.carts[0].quantity
 
-                // Cập nhật số lượng giỏ hàng trong context
-                updateCartCount(totalItems)
+                    // Cập nhật số lượng giỏ hàng trong context
+                    updateCartCount(totalItems)
 
-                setShow(true)
-                setTimeout(() => {
-                    sessionStorage.removeItem("path-before-login")
-                    navigate(currentPath) // Chuyển hướng về trang trước đó sau 1 giây
-                }, 1000)  
-          }
-        } else throw new Error("Đăng nhập thất bại")
+                    setShow(true)
+                    setTimeout(() => {
+                        sessionStorage.removeItem("path-before-login")
+                        navigate(currentPath) // Chuyển hướng về trang trước đó sau 1 giây
+                    }, 1000)
+                }
+            } else throw new Error("Đăng nhập thất bại")
 
-      } catch(error) {
+        } catch (error) {
             console.error('Đăng nhập không thành công:', error)
 
             // Cập nhật thông báo lỗi chi tiết
@@ -64,21 +64,14 @@ function Login() {
     }
 
     return (
-        <>
+        <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f8f2e8' }}>
             <div className="d-flex justify-content-center py-3 border-bottom bg-white">
-                <Link to="/">
-                    <img
-                        src={grayLogo}
-                        alt="TLU Bakery Logo"
-                        style={{ height: '55px', width: 'auto' }}
-                    />
+                <Link to='/'>
+                    <img src={grayLogo} alt="TLU Bakery Logo" style={{ height: '55px', width: 'auto' }} />
                 </Link>
             </div>
-            <Container>
-                <div
-                    className="bg-white mt-5 rounded"
-                    style={{ width: "100%", height: "50%" }}
-                >
+            <Container className="flex-grow">
+                <div className="bg-white mt-5 rounded" style={{ width: "100%", height: "50%" }}>
                     <div className="row p-3">
                         <div className="col-md-5 d-flex align-items-center">
                             <img
@@ -94,38 +87,38 @@ function Login() {
                             >
                                 <p className="fs-3 fw-bold">Đăng nhập</p>
                                 <Form onSubmit={handleLogin}>
-                                  <Form.Label htmlFor="emailUser">
-                                      Tài khoản
-                                  </Form.Label>
-                                  <Form.Control
-                                      type="email"
-                                      id="emailUser"
-                                      placeholder="Nhập Email"
-                                      className="mb-2"
-                                      value={email}
-                                      onChange={(e) => setEmail(e.target.value)}
-                                      required
-                                      />
-                                  <Form.Label htmlFor="passwordlUser">
-                                      Mật khẩu
-                                  </Form.Label>
-                                  <Form.Control
-                                      type="password"
-                                      id="passwordUser"
-                                      placeholder="Nhập mật khẩu"
-                                      className="mb-2"
-                                      value={password}
-                                      onChange={(e) => setPassword(e.target.value)}
-                                      required
-                                      />
-                                  {error && <p className="text-danger mb-0">{error}</p>}
-                                  <Button
-                                      className="buttonHover rounded-pill mt-3"
-                                      style={{ width: "100%" }}
-                                      type="submit"
-                                  >
-                                      Đăng nhập
-                                  </Button>
+                                    <Form.Label htmlFor="emailUser">
+                                        Tài khoản
+                                    </Form.Label>
+                                    <Form.Control
+                                        type="email"
+                                        id="emailUser"
+                                        placeholder="Nhập Email"
+                                        className="mb-2"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                    />
+                                    <Form.Label htmlFor="passwordlUser">
+                                        Mật khẩu
+                                    </Form.Label>
+                                    <Form.Control
+                                        type="password"
+                                        id="passwordUser"
+                                        placeholder="Nhập mật khẩu"
+                                        className="mb-2"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                    />
+                                    {error && <p className="text-danger mb-0">{error}</p>}
+                                    <Button
+                                        className="buttonHover rounded-pill mt-3"
+                                        style={{ width: "100%" }}
+                                        type="submit"
+                                    >
+                                        Đăng nhập
+                                    </Button>
                                 </Form>
                                 <p className="text-secondary text-center mt-4">
                                     Không có tài khoản?
@@ -141,11 +134,13 @@ function Login() {
                 </div>
             </Container>
             <ToastContainer className="mt-3" position="top-center">
-                <Toast className="bg-success text-white text-center fw-medium" onClose={() => setShow(false)} delay={800} show={show} autohide>
+                <Toast className="bg-success text-white text-center fw-medium"
+                    onClose={() => setShow(false)}
+                    delay={800} show={show} autohide>
                     <Toast.Body>Đăng nhập thành công!</Toast.Body>
-                </Toast>    
+                </Toast>
             </ToastContainer>
-        </>
+        </div>
     );
 }
 

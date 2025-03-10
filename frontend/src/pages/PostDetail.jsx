@@ -1,5 +1,5 @@
 import { Container, Breadcrumb, Form, FloatingLabel, Pagination } from 'react-bootstrap'
-import { useEffect, useState } from 'react'   
+import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 
 import Header from "../components/Header"
@@ -11,7 +11,7 @@ import Comment from '../components/Comment'
 import '../components/Custom.css'
 
 function PostDetail() {
-    const {id} = useParams()
+    const { id } = useParams()
     const [post, setPost] = useState(null)
     const [isLiking, setIsLiking] = useState(false)
     const [likedCount, setLikedCount] = useState(0)
@@ -25,7 +25,7 @@ function PostDetail() {
 
     // Lấy dữ liệu chi tiết bài viết
     useEffect(() => {
-        const fetchPost = async() => {
+        const fetchPost = async () => {
             try {
                 const postDetail = await postsApi.getPostDetail(id)
                 setPost(postDetail)
@@ -41,14 +41,14 @@ function PostDetail() {
 
     // Lấy dữ liệu danh sách bình luận của bài viết
     useEffect(() => {
-        const fetchCommentList = async() => {
+        const fetchCommentList = async () => {
             setLoading(true)
             try {
                 const commentListResponse = await postsApi.getCommentList(id) || []
                 console.log("commentListRes:", commentListResponse)
 
                 setCommentList(commentListResponse)
-            } catch(error) {
+            } catch (error) {
                 console.log("Lỗi khi lấy dữ liệu danh sách bình luận:", error)
             } finally {
                 setLoading(false)
@@ -86,13 +86,13 @@ function PostDetail() {
         try {
             const commentResponse = await postsApi.comment(id, commentContent)
             console.log('commentRes', commentResponse)
-            
-             // Cập nhật danh sách bình luận với bình luận mới nhất
+
+            // Cập nhật danh sách bình luận với bình luận mới nhất
             setCommentList((prevComments) => [commentResponse, ...prevComments])
 
             // Xóa nội dung ô nhập sau khi gửi
             setCommentContent('')
-        } catch(error) {
+        } catch (error) {
             console.log("Có lỗi khi bình luận:", error)
         }
     }
@@ -109,10 +109,9 @@ function PostDetail() {
     }
 
     return (
-        <>
+        <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f8f2e8' }}>
             <Header />
-
-            <Container>
+            <Container className="flex-grow">
                 <Breadcrumb className='my-3'>
                     <Link to='/' className='text-decoration-none text-secondary me-2'>Trang chủ</Link>
                     <span className='text-secondary me-2'>&gt;</span>
@@ -136,13 +135,13 @@ function PostDetail() {
                     </div>
                     <div className="col-lg-4">
                         <div className="bg-white rounded py-2 px-4 clearfix">
-                            <p className='fw-medium border-bottom pb-2 mb-2' style={{color: '#000066'}}>{post ? post.author : "Đang tải..."}</p>
+                            <p className='fw-medium border-bottom pb-2 mb-2' style={{ color: '#000066' }}>{post ? post.author : "Đang tải..."}</p>
                             <div className="d-flex border-bottom pb-2 mb-2">
-                                <img 
+                                <img
                                     src={isLiked ? Favorited : Favorite}
                                     className="me-2"
                                     width='25'
-                                    style={{ cursor: 'pointer' }} 
+                                    style={{ cursor: 'pointer' }}
                                     onClick={handleLikePost}
                                 />
                                 <span className='text-secondary'>{likedCount}</span>
@@ -163,7 +162,7 @@ function PostDetail() {
                                 </FloatingLabel>
                                 <button
                                     className='rounded-pill btn float-end buttonHover mb-2'
-                                    style={{fontSize: '14px'}}
+                                    style={{ fontSize: '14px' }}
                                     type='submit'
                                 >
                                     Bình luận
@@ -175,8 +174,8 @@ function PostDetail() {
                                 ) : commentList.length === 0 ? (
                                     <p className="text-center text-secondary">Chưa có bình luận!</p>
                                 ) : (
-                                    currentComment.map((comment) => (   
-                                        <Comment key={comment.id} data={comment}/>
+                                    currentComment.map((comment) => (
+                                        <Comment key={comment.id} data={comment} />
                                     ))
                                 )}
                             </div>
@@ -199,9 +198,8 @@ function PostDetail() {
                 </div>
 
             </Container>
-
             <Footer />
-        </>
+        </div>
     )
 }
 

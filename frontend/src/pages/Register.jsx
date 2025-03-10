@@ -1,6 +1,6 @@
-import {Button, Container, Form, Toast, ToastContainer} from 'react-bootstrap'
-import {Link, useNavigate} from 'react-router-dom'
-import {useState} from 'react'
+import { Button, Container, Form, Toast, ToastContainer } from 'react-bootstrap'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import grayLogo from "../assets/grayLogo.svg"
 import LogoColor from "../assets/LogoColor.jpg"
 import '../components/Custom.css'
@@ -39,20 +39,20 @@ function Register() {
     }
 
     return (
-        <>
+        <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f8f2e8' }}>
             <div className="d-flex justify-content-center py-3 border-bottom bg-white">
                 <Link to='/'>
-                    <img src={grayLogo} alt="TLU Bakery Logo" style={{height: '55px', width: 'auto'}}/>
+                    <img src={grayLogo} alt="TLU Bakery Logo" style={{ height: '55px', width: 'auto' }} />
                 </Link>
             </div>
-            <Container>
-                <div className="bg-white mt-5 rounded" style={{width: "100%", height: "50%"}}>
+            <Container className="flex-grow">
+                <div className="bg-white mt-5 rounded" style={{ width: "100%", height: "50%" }}>
                     <div className="row">
                         <div className='col-md-5 d-flex align-items-center'>
-                            <img src={LogoColor} className='ms-5' style={{width: "85%"}}></img>
+                            <img src={LogoColor} className='ms-5' style={{ width: "85%" }}></img>
                         </div>
                         <div className="col-md-7">
-                            <div className='p-5' style={{width: "85%", marginTop: "75px"}}>
+                            <div className='p-5' style={{ width: "85%", marginTop: "75px" }}>
                                 <p className="fs-3 fw-bold">Tạo tài khoản</p>
                                 <Form onSubmit={handleRegister}>
                                     <Form.Label htmlFor="nameUser">Tên tài khoản</Form.Label>
@@ -86,8 +86,8 @@ function Register() {
                                         required
                                     />
                                     {error && <p className="text-danger mb-0">{error}</p>}
-                                    <Button className='buttonHover rounded-pill mt-3' style={{width: '100%'}}
-                                            type='submit'>
+                                    <Button className='buttonHover rounded-pill mt-3' style={{ width: '100%' }}
+                                        type='submit'>
                                         Tạo tài khoản
                                     </Button>
                                 </Form>
@@ -103,12 +103,13 @@ function Register() {
                 </div>
             </Container>
             <ToastContainer className="mt-3" position="top-center">
-                <Toast className="bg-success text-white text-center fw-medium" onClose={() => setShow(false)}
-                       delay={800} show={show} autohide>
+                <Toast className="bg-success text-white text-center fw-medium"
+                    onClose={() => setShow(false)}
+                    delay={800} show={show} autohide>
                     <Toast.Body>Đăng ký thành công!</Toast.Body>
                 </Toast>
             </ToastContainer>
-        </>
+        </div>
     )
 }
 

@@ -9,15 +9,15 @@ import {
     Toast,
     ToastContainer
 } from 'react-bootstrap'
-import { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import {useEffect, useState} from 'react';
+import {Link, useLocation, useNavigate} from 'react-router-dom'
 import SearchLogo from '../assets/Search.svg'
 import grayLogo from '../assets/grayLogo.svg'
 import CartItem from './CartItem';
-import { useCart } from './CartContext';
+import {useCart} from './CartContext';
 import './Custom.css'
 import dishesApi from '../api/dishes';
-import { CircleUserRound, Newspaper, ShoppingBasket, User } from 'lucide-react';
+import {CircleUserRound, Newspaper, ShoppingBasket} from 'lucide-react';
 
 function Header() {
     const [showOffcanvas, setShowOffcanvas] = useState(false);

@@ -13,13 +13,11 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import SearchLogo from '../assets/Search.svg'
 import grayLogo from '../assets/grayLogo.svg'
-import UserLogo from '../assets/User.svg'
-import GroupLogo from '../assets/Group.svg'
-import BagLogo from '../assets/Bag.svg'
 import CartItem from './CartItem';
 import { useCart } from './CartContext';
 import './Custom.css'
 import dishesApi from '../api/dishes';
+import { CircleUserRound, Newspaper, ShoppingBasket, User } from 'lucide-react';
 
 function Header() {
     const [showOffcanvas, setShowOffcanvas] = useState(false);
@@ -186,19 +184,14 @@ function Header() {
 
                     <div className="d-flex align-items-center" style={{ cursor: 'pointer' }}>
                         {/* Blog  */}
-                        <Link to='/blog'>
-                            <img src={GroupLogo} alt="Group Logo"  className='me-4 iconHover' />
+                        <Link to='/blog' className="text-decoration-none text-black me-3">
+                            <Newspaper />
                         </Link>
+
                         {/* Giỏ hàng */}
                         {cartCount > 0 ? (
-                            <div className="position-relative">
-                                <img
-                                    src={BagLogo}
-                                    alt="Bag Logo"
-                                    height='24'
-                                    className='me-2 iconHover'
-                                    onClick={handleShow}
-                                />
+                            <div className="position-relative me-3">
+                                <ShoppingBasket onClick={handleShow} />
                                 <span
                                     className='position-absolute top-0 start-100 translate-middle badge rounded-pill text-white'
                                     style={{ backgroundColor: '#000066' }}
@@ -207,18 +200,15 @@ function Header() {
                                 </span>
                             </div>
                         ) : (
-                            <img
-                                src={BagLogo}
-                                alt="Bag Logo"
-                                height='24'
-                                className='me-2 iconHover'
-                                onClick={handleShow}
-                            />
+                            <div className="me-3">
+                                <ShoppingBasket onClick={handleShow} />
+                            </div>
                         )}
+
                         {/* Người dùng */}
-                        <Dropdown className='p-0'>
-                            <Dropdown.Toggle className='bg-transparent border border-0'>
-                                <img src={UserLogo} className='iconHover' alt="User Logo" height='24' />
+                        <Dropdown>
+                            <Dropdown.Toggle className="border-0 bg-transparent p-0 m-0 shadow-none dropdown-toggle::after:hidden">
+                                <CircleUserRound className="text-black" />
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
